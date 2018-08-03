@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/hashtanle/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/01/hashtanle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Long Long">
@@ -308,7 +308,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/03/hashtanle/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/08/01/hashtanle/" itemprop="url">HashMap和Hashtable的区别</a></h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T20:39:43+08:00">
-                2018-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-01T22:15:16+08:00">
+                2018-08-01
               </time>
             
 
@@ -330,6 +330,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/默认分类/" itemprop="url" rel="index">
+                    <span itemprop="name">默认分类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -359,13 +381,14 @@
 
       
         
-          
-            <p>&lt;!–more&gt;</p>
-<p>##HashMap和Hashtable的区别<br><img src="D:/Users/longlong.liu/SpringMVC注解.PNG" alt="Example"><br>1.<strong>继承的父类不同</strong><br>  HashMap继承自AbstractMap类，而Hashtable继承自Dictoonary类，不过它们都实现了map、Cloneable（可复制）、Serializable（可序列化）这三个接口<br>[TOC]<br>2.<strong>键值空值支持</strong><br>Hashtable既不支持Null key也不支持Null value<br>HashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。当get()方法返回null值时，可能是 HashMap中没有该键，也可能使该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。<br>3.<strong>线程安全</strong><br><em>Hashtable是线程按安全的，HashMap不是线程安全的</em>使用HashMap时就必须要自己增加同步处理，虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。<br>4.<strong>遍历方式不同</strong></p>
-<hr>
-<p>Hashtable、HashMap都使用了 Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。<br>4.<strong>初始化容量大小不同</strong><br>Hashtable默认的初始大小为11，之后每次扩充，容量变为原来的2n+1。HashMap默认的初始化大小为16。之后每次扩充，容量变为原来的2倍。</p>
-
-          
+          HashMap和Hashtable的区别
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/01/hashtanle/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -617,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
