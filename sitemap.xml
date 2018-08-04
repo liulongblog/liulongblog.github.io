@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://yoursite.com/about/index-1.html</loc>
+    
+    <lastmod>2018-08-04T00:51:38.473Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index-1.html</loc>
+    
+    <lastmod>2018-08-04T00:51:14.465Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index-1.html</loc>
+    
+    <lastmod>2018-08-04T00:50:54.516Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/404.html</loc>
+    
+    <lastmod>2018-08-03T13:55:59.886Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-08-03T13:07:53.241Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/01/hashtanle/</loc>
+    
+    <lastmod>2018-08-03T12:54:44.573Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/something/one.html</loc>
+    
+    <lastmod>2018-08-01T15:28:29.434Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2018-08-01T14:41:22.895Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2018-08-01T14:38:51.184Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/01/HELLO-hexo/</loc>
+    
+    <lastmod>2018-08-01T14:16:26.975Z</lastmod>
+    
+  </url>
+  
+</urlset>

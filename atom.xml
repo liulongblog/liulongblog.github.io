@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-01T14:16:26.975Z</updated>
+  <updated>2018-08-03T12:54:44.573Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HashMap和Hashtable的区别</title>
+    <link href="http://yoursite.com/2018/08/01/hashtanle/"/>
+    <id>http://yoursite.com/2018/08/01/hashtanle/</id>
+    <published>2018-08-01T14:15:16.000Z</published>
+    <updated>2018-08-03T12:54:44.573Z</updated>
+    
+    <content type="html"><![CDATA[<p>##HashMap和Hashtable的区别<br><img src="http://img.zcool.cn/community/0166fc554bf523000001bf72e68af5.jpg@1280w_1l_2o_100sh.jpg" alt="Example"><br>1.<strong>继承的父类不同</strong></p><hr><p>  HashMap继承自AbstractMap类，而Hashtable继承自Dictoonary类，不过它们都实现了map、Cloneable（可复制）、Serializable（可序列化）这三个接口</p><hr><a id="more"></a><p>2.<strong>键值空值支持</strong></p><hr><p>Hashtable既不支持Null key也不支持Null value<br>HashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。当get()方法返回null值时，可能是 HashMap中没有该键，也可能使该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。</p><hr><p>3.<strong>线程安全</strong></p><hr><p><em>Hashtable是线程按安全的，HashMap不是线程安全的</em>使用HashMap时就必须要自己增加同步处理，虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。</p><hr><p>4.<strong>遍历方式不同</strong></p><hr><hr><p>Hashtable、HashMap都使用了 Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。</p><hr><p>4.<strong>初始化容量大小不同</strong></p><hr><p>Hashtable默认的初始大小为11，之后每次扩充，容量变为原来的2n+1。HashMap默认的初始化大小为16。之后每次扩充，容量变为原来的2倍。</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      HashMap和Hashtable的区别
+    
+    </summary>
+    
+      <category term="默认分类" scheme="http://yoursite.com/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
+    
+    
+      <category term="java基础" scheme="http://yoursite.com/tags/java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>这是我第一个博客！</title>
@@ -39,28 +61,6 @@
       <category term="tag2" scheme="http://yoursite.com/tags/tag2/"/>
     
       <category term="tag3" scheme="http://yoursite.com/tags/tag3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HashMap和Hashtable的区别</title>
-    <link href="http://yoursite.com/2018/08/01/hashtanle/"/>
-    <id>http://yoursite.com/2018/08/01/hashtanle/</id>
-    <published>2018-08-01T14:15:16.000Z</published>
-    <updated>2018-08-03T12:54:44.573Z</updated>
-    
-    <content type="html"><![CDATA[<p>##HashMap和Hashtable的区别<br><img src="http://img.zcool.cn/community/0166fc554bf523000001bf72e68af5.jpg@1280w_1l_2o_100sh.jpg" alt="Example"><br>1.<strong>继承的父类不同</strong></p><hr><p>  HashMap继承自AbstractMap类，而Hashtable继承自Dictoonary类，不过它们都实现了map、Cloneable（可复制）、Serializable（可序列化）这三个接口</p><hr><a id="more"></a><p>2.<strong>键值空值支持</strong></p><hr><p>Hashtable既不支持Null key也不支持Null value<br>HashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。当get()方法返回null值时，可能是 HashMap中没有该键，也可能使该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。</p><hr><p>3.<strong>线程安全</strong></p><hr><p><em>Hashtable是线程按安全的，HashMap不是线程安全的</em>使用HashMap时就必须要自己增加同步处理，虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。</p><hr><p>4.<strong>遍历方式不同</strong></p><hr><hr><p>Hashtable、HashMap都使用了 Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。</p><hr><p>4.<strong>初始化容量大小不同</strong></p><hr><p>Hashtable默认的初始大小为11，之后每次扩充，容量变为原来的2n+1。HashMap默认的初始化大小为16。之后每次扩充，容量变为原来的2倍。</p><hr>]]></content>
-    
-    <summary type="html">
-    
-      HashMap和Hashtable的区别
-    
-    </summary>
-    
-      <category term="默认分类" scheme="http://yoursite.com/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB/"/>
-    
-    
-      <category term="java基础" scheme="http://yoursite.com/tags/java%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
