@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[HashMap和Hashtable的区别]]></title>
-    <url>%2F2018%2F08%2F01%2Fhashtanle%2F</url>
-    <content type="text"><![CDATA[##HashMap和Hashtable的区别1.继承的父类不同 HashMap继承自AbstractMap类，而Hashtable继承自Dictoonary类，不过它们都实现了map、Cloneable（可复制）、Serializable（可序列化）这三个接口 2.键值空值支持 Hashtable既不支持Null key也不支持Null valueHashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。当get()方法返回null值时，可能是 HashMap中没有该键，也可能使该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。 3.线程安全 Hashtable是线程按安全的，HashMap不是线程安全的使用HashMap时就必须要自己增加同步处理，虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。 4.遍历方式不同 Hashtable、HashMap都使用了 Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。 4.初始化容量大小不同 Hashtable默认的初始大小为11，之后每次扩充，容量变为原来的2n+1。HashMap默认的初始化大小为16。之后每次扩充，容量变为原来的2倍。]]></content>
-      <categories>
-        <category>默认分类</category>
-      </categories>
-      <tags>
-        <tag>java基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[这是我第一个博客！]]></title>
     <url>%2F2018%2F08%2F01%2FHELLO-hexo%2F</url>
     <content type="text"><![CDATA[前言使用github pages服务搭建博客的好处有： 全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台； 等等；]]></content>
@@ -22,6 +11,17 @@
         <tag>tag1</tag>
         <tag>tag2</tag>
         <tag>tag3</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HashMap和Hashtable的区别]]></title>
+    <url>%2F2018%2F08%2F01%2Fhashtanle%2F</url>
+    <content type="text"><![CDATA[##HashMap和Hashtable的区别1.继承的父类不同 HashMap继承自AbstractMap类，而Hashtable继承自Dictoonary类，不过它们都实现了map、Cloneable（可复制）、Serializable（可序列化）这三个接口 2.键值空值支持 Hashtable既不支持Null key也不支持Null valueHashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。当get()方法返回null值时，可能是 HashMap中没有该键，也可能使该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。 3.线程安全 Hashtable是线程按安全的，HashMap不是线程安全的使用HashMap时就必须要自己增加同步处理，虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。 4.遍历方式不同 Hashtable、HashMap都使用了 Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。 4.初始化容量大小不同 Hashtable默认的初始大小为11，之后每次扩充，容量变为原来的2n+1。HashMap默认的初始化大小为16。之后每次扩充，容量变为原来的2倍。]]></content>
+      <categories>
+        <category>默认分类</category>
+      </categories>
+      <tags>
+        <tag>java基础</tag>
       </tags>
   </entry>
 </search>
