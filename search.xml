@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2018%2F08%2F05%2FHair%2F</url>
-    <content type="text"><![CDATA[title: 码农头发从有到无date: 2018-08-01 22:15:16 #文章生成时间，一般不改，当然也可以任意修改categories: 个人 #分类tags: [生活] #文章标签，可空，多标签请用格式，注意:后面有个空格 description: 码农头发从有到无20180804上班一个月时间|发际线|发量—|:–:|—:20180804|8|8 评分标准：满分10分，6分及格、]]></content>
+    <title><![CDATA[码农头发从有到无]]></title>
+    <url>%2F2018%2F08%2F01%2FHair%2F</url>
+    <content type="text"><![CDATA[20180804上班一个月时间|发际线|发量—|:–:|—:20180804|8|8 评分标准：满分10分，6分及格、]]></content>
+      <categories>
+        <category>个人</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[HashMap和Hashtable的区别]]></title>
