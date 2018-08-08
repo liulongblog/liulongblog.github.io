@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2018%2F08%2F05%2FHair%2F</url>
+    <content type="text"><![CDATA[title: 码农头发从有到无date: 2018-08-01 22:15:16 #文章生成时间，一般不改，当然也可以任意修改categories: 个人 #分类tags: [生活] #文章标签，可空，多标签请用格式，注意:后面有个空格 description: 码农头发从有到无20180804上班一个月时间|发际线|发量—|:–:|—:20180804|8|8 评分标准：满分10分，6分及格、]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[对servlet的一点儿认识]]></title>
+    <url>%2F2018%2F08%2F01%2Fservlet%2F</url>
+    <content type="text"><![CDATA[1.servlet简介servlet是运行在服务端的java程序，用来处理客户端（浏览器）的请求，并对请求做出响应。 2.servlet生命周期servlet默认是单例模式，也就是整个生命周期只会被初始化一次(1). Web服务器首先检查是否已经装载并创建了该Servlet的实例对象。如果是，则直接执行第④步，否则，执行第②步。(2). 装载并创建该Servlet的一个实例对象。(3). 调用Servlet实例对象的init()方法。(4). 创建一个用于封装HTTP请求消息的HttpServletRequest对象和一个代表HTTP响应消息的HttpServletResponse对象，然后调用Servlet的service()方法并将请求和响应对象作为参数传递进去。(5). WEB应用程序被停止或重新启动之前，Servlet引擎将卸载Servlet，并在卸载之前调用Servlet的destroy()方法。 3.servlet开发步骤(1). 新建一个web程序，Servlet接口SUN公司定义了两个默认实现类，分别为：GenericServlet、HttpServlet。HttpServlet指能够处理HTTP请求的servlet，它在原有Servlet接口上添加了一些与HTTP协议处理方法，它比Servlet接口的功能更为强大。因此开发人员在编写Servlet时，通常应继承这个类，而避免直接去实现Servlet接口。HttpServlet在实现Servlet接口时，覆写了service方法，该方法体内的代码会自动判断用户的请求方式，如为GET请求，则调用HttpServlet的doGet方法，如为Post请求，则调用doPost方法。因此，开发人员在编写Servlet时，通常只需要覆写doGet或doPost方法，而不要去覆写service方法。(2). 新建一个servlet，继承自HttpServlet，重写doGet(),doPost()方法(3). web.xml配置servlet映射。12345678 &lt;servlet&gt; &lt;servlet-name&gt;ServletDemo1&lt;/servlet-name&gt; &lt;servlet-class&gt;com.ucl.controller.ServletDemo1&lt;/servlet-class&gt;&lt;/servlet&gt;&lt;servlet-mapping&gt; &lt;servlet-name&gt;ServletDemo1&lt;/servlet-name&gt; &lt;url-pattern&gt;/servlet/ServletDemo1&lt;/url-pattern&gt;&lt;/servlet-mapping&gt; (4). 浏览器输入http://localhost:8080/springMVC/servlet/demo1,即可 4.servlet存在的线程安全问题。针对Servlet的线程安全问题，Sun公司是提供有解决方案的：让Servlet去实现一个SingleThreadModel接口，如果某个Servlet实现了SingleThreadModel接口，那么Servlet引擎将以单线程模式来调用其service方法。 查看Sevlet的API可以看到，SingleThreadModel接口中没有定义任何方法和常量，在Java中，把没有定义任何方法和常量的接口称之为标记接口，经常看到的一个最典型的标记接口就是”Serializable”，这个接口也是没有定义任何方法和常量的，标记接口在Java中有什么用呢？主要作用就是给某个对象打上一个标志，告诉JVM，这个对象可以做什么，比如实现了”Serializable”接口的类的对象就可以被序列化，还有一个”Cloneable”接口，这个也是一个标记接口，在默认情况下，Java中的对象是不允许被克隆的，就像现实生活中的人一样，不允许克隆，但是只要实现了”Cloneable”接口，那么对象就可以被克隆了。 让Servlet实现了SingleThreadModel接口，只要在Servlet类的定义中增加实现SingleThreadModel接口的声明即可。 对于实现了SingleThreadModel接口的Servlet，Servlet引擎仍然支持对该Servlet的多线程并发访问，其采用的方式是产生多个Servlet实例对象，并发的每个线程分别调用一个独立的Servlet实例对象。 实现SingleThreadModel接口并不能真正解决Servlet的线程安全问题，因为Servlet引擎会创建多个Servlet实例对象，而真正意义上解决多线程安全问题是指一个Servlet实例对象被多个线程同时调用的问题。事实上，在Servlet API 2.4中，已经将SingleThreadModel标记为Deprecated（过时的）。 参考文章： javaweb学习总结(五)——Servlet开发(一)]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>javaweb</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HashMap和Hashtable的区别]]></title>
     <url>%2F2018%2F08%2F01%2Fhashtanle%2F</url>
     <content type="text"><![CDATA[##HashMap和Hashtable的区别1.继承的父类不同 HashMap继承自AbstractMap类，而Hashtable继承自Dictoonary类，不过它们都实现了map、Cloneable（可复制）、Serializable（可序列化）这三个接口 2.键值空值支持 Hashtable既不支持Null key也不支持Null valueHashMap中，null可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为null。当get()方法返回null值时，可能是 HashMap中没有该键，也可能使该键所对应的值为null。因此，在HashMap中不能由get()方法来判断HashMap中是否存在某个键， 而应该用containsKey()方法来判断。 3.线程安全 Hashtable是线程按安全的，HashMap不是线程安全的使用HashMap时就必须要自己增加同步处理，虽然HashMap不是线程安全的，但是它的效率会比Hashtable要好很多。这样设计是合理的。在我们的日常使用当中，大部分时间是单线程操作的。HashMap把这部分操作解放出来了。当需要多线程操作的时候可以使用线程安全的ConcurrentHashMap。ConcurrentHashMap虽然也是线程安全的，但是它的效率比Hashtable要高好多倍。因为ConcurrentHashMap使用了分段锁，并不对整个数据进行锁定。 4.遍历方式不同 Hashtable、HashMap都使用了 Iterator。而由于历史原因，Hashtable还使用了Enumeration的方式 。 4.初始化容量大小不同 Hashtable默认的初始大小为11，之后每次扩充，容量变为原来的2n+1。HashMap默认的初始化大小为16。之后每次扩充，容量变为原来的2倍。]]></content>
@@ -9,17 +25,6 @@
       </categories>
       <tags>
         <tag>java基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[码农头发从有到无]]></title>
-    <url>%2F2018%2F08%2F01%2FHair%2F</url>
-    <content type="text"><![CDATA[20180804上班一个月时间|发际线|发量—|:–:|—:20180804|8|8 评分标准：满分10分，6分及格、]]></content>
-      <categories>
-        <category>个人</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
 </search>

@@ -1985,7 +1985,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6ff74d;
+  background: #362504;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3113,4 +3113,15 @@ pre {
 }
 .site-meta {
   background: #0684bd;
+}
+@media screen and (min-width: 1200px) {
+  body {
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+  }
+  #footer a {
+    color: #eee;
+  }
 }
