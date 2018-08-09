@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liulongblog.top/"/>
-  <updated>2018-08-03T12:54:44.573Z</updated>
+  <updated>2018-08-09T15:04:16.468Z</updated>
   <id>http://www.liulongblog.top/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>spring aop</title>
+    <link href="http://www.liulongblog.top/2018/08/10/spring-aop/"/>
+    <id>http://www.liulongblog.top/2018/08/10/spring-aop/</id>
+    <published>2018-08-10T14:15:16.000Z</published>
+    <updated>2018-08-09T15:04:16.468Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h3 id="1-aop概述"><a href="#1-aop概述" class="headerlink" title="1. aop概述"></a>1. aop概述</h3><p>AOP，即Aspect Oriented Programming（面向切面编程），它是对面向对象编程的补充和完善，而oop适合定义横向的关系，aop适合定向横向的关系，它利用一种称为”横切”的技术，剖解开封装的对象内部，并将那些影响了多个类的公共行为封装到一个可重用模块，并将其命名为”Aspect”，即切面。所谓”切面”，简单说就是那些与业务无关，却为业务模块所共同调用的逻辑或责任封装起来，便于减少系统的重复代码，降低模块之间的耦合度，并有利于未来的可操作性和可维护性。<br>~~~~使用”横切”技术，AOP把软件系统分为两个部分：核心关注点和横切关注点。业务处理的主要流程是核心关注点，与之关系不大的部分是横切关注点。横切关注点的一个特点是，他们经常发生在核心关注点的多处，而各处基本相似，比如权限认证、日志、事物。AOP的作用在于分离系统中的各种关注点，将核心关注点和横切关注点分离开来。</p><h3 id="2-aop核心概念"><a href="#2-aop核心概念" class="headerlink" title="2. aop核心概念"></a>2. aop核心概念</h3><p>(1). 横切关注点<br>对哪些方法进行拦截，拦截后怎么处理，这些关注点成为横切关注点。<br>(2). 切面（aspect）<br>一般修饰一个类，该类是对物体特征的抽象，切面是横切关注点的抽象<br>(3). 连接点(Joinpoint)<br>被拦截到的点，因为Spring只支持方法类型的连接点，所以在Spring中连接点指的就是被拦截到的方法，实际上连接点还可以是字段或者构造器<br>(4). 切入点(pointCut)<br>对连接点进行拦截的定义<br>(5)通知，也称为增强（Advice），分为@Before，@After，@Around<br>@AfterRuturningAdvice，@AfterThrowingAdvice<br><img src="http://pcxs1rsya.bkt.clouddn.com/aop.png" alt=""></p><h3 id="3-实现简单的aop例子"><a href="#3-实现简单的aop例子" class="headerlink" title="3. 实现简单的aop例子"></a>3. 实现简单的aop例子</h3><p>@aspect 定义切面<br>@pointcut 定义切点<br>@before 标注Before Advice定义所在的方法<br>@afterreturning 标注After Returning Advice定义所在的方法<br>@afterthrowing 标注After Throwing Advice定义所在的方法<br>@after 标注 After(Finally) Advice定义所在的方法<br>@around 标注Around Advice定义所在的方法<br>execution：<br>  Spring AOP仅支持方法执行类型的Joinpoint 所以execution将会是我们用的最多的标志符，用它来帮我们匹配拥有指定方法前面的Joinpoint。匹配规则如下：<br>execution(modifiers-pattern? return-type-pattern declaring-type-pattern? name-pattern(param-pattern) throws-pattern)</p><p>modifiers-pattern 修饰符 比如public private这种（可以指定可以不指定）<br>return-type-pattern 返回值类型（必须指定）<br>declaring-type-pattern 类型（可以是含包名的全路径类型 可以指定可以不指定）<br>name-pattern 方法名（必须指定）<br>param-pattern 参数类型（必须指定）<br>方法的返回类型 方法名及参数部分的匹配模式是必须指定的 其他部分可以省略。<br>我们还可以在表达式中使用两种通配符：<em>和..<br>  第一：</em>可以用于任何部分的匹配模式中，匹配相邻的多个字符，即一个Work 。如果放在了方法参数的位置标示参数是任何类型的。<br>例如：execution(<em> </em>(String))<br>  第二：..通配符可以在两个位置使用 一个是declaring-type-pattern的位置，一个是在方法参数匹配模式的位置。<br>如果是放在了方法类型的位置，可以指定多个层次的类型声明。例如：<br>execution(void cn.spring.<em>.doSomething(</em>)) 指定到cn.spring下的所有类型。<br>如果是放在了方法参数的匹配位置，则表示该方法可以有0到多个参数。例如：<br>execution(void *.doSomething(..))<br>业务类代码**<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package com.ctj.service;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class BusinessService &#123;</span><br><span class="line"></span><br><span class="line">    public void say()&#123;</span><br><span class="line">        System.out.println(&quot;Business Code&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><strong>切面类定义：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package com.ctj.aspect;</span><br><span class="line">import org.aspectj.lang.annotation.Aspect;</span><br><span class="line">import org.aspectj.lang.annotation.Before;</span><br><span class="line">import org.aspectj.lang.annotation.Pointcut;</span><br><span class="line"></span><br><span class="line">@Aspect</span><br><span class="line">public class LogAspect &#123;</span><br><span class="line">    @Pointcut(&quot;execution(* com.ctj.service.*.*(..))&quot;)</span><br><span class="line">    public void pointcutName()&#123;&#125;</span><br><span class="line">    @Before(&quot;pointcutName()&quot;)</span><br><span class="line">    public void performance()&#123;</span><br><span class="line">        System.out.println(&quot;Spring AOP&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><strong>spring-aop.xml</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd</span><br><span class="line"></span><br><span class="line">    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd&quot;&gt;</span><br><span class="line">    &lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot;/&gt;</span><br><span class="line">    &lt;bean id=&quot;logAspect&quot; class=&quot;com.ctj.aspect.LogAspect&quot;&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p><p>参考来源：<br><a href="https://www.cnblogs.com/programmer1/p/7994031.html" target="_blank" rel="noopener">spring aop注解形式</a></p>]]></content>
+    
+    <summary type="html">
+    
+      spring aop
+    
+    </summary>
+    
+      <category term="框架" scheme="http://www.liulongblog.top/categories/%E6%A1%86%E6%9E%B6/"/>
+    
+    
+      <category term="spring框架" scheme="http://www.liulongblog.top/tags/spring%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mybatis中分页插件的使用</title>
+    <link href="http://www.liulongblog.top/2018/08/09/pageHelper/"/>
+    <id>http://www.liulongblog.top/2018/08/09/pageHelper/</id>
+    <published>2018-08-09T14:15:16.000Z</published>
+    <updated>2018-08-09T15:06:33.472Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h3 id="1-pageHelper应用场景"><a href="#1-pageHelper应用场景" class="headerlink" title="1.pageHelper应用场景"></a>1.pageHelper应用场景</h3><p>单表查询结果需要分页处理时，不支持多边联合查询，本文实在springboot项目中使用的</p><h3 id="2-使用步骤"><a href="#2-使用步骤" class="headerlink" title="2.使用步骤"></a>2.使用步骤</h3><p>(1). maven项目中引入依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 分页插件 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.1.2&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p><p>(2). application.yml中进行配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#pagehelper分页插件</span><br><span class="line">pagehelper:</span><br><span class="line">    helperDialect: mysql</span><br><span class="line">    reasonable: true</span><br><span class="line">    supportMethodsArguments: true</span><br><span class="line">    params: count=countSql</span><br></pre></td></tr></table></figure></p><p>(3). controller中使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//以查询所有为例，代码如下</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;/listAll&quot;)</span><br><span class="line">public String listAll(@RequestParam(required = false,defaultValue = &quot;1&quot;,value = &quot;currentPage&quot;)Integer currentPage,@RequestParam(required = false,value = &quot;pageSize&quot;)Integer pageSize,</span><br><span class="line">          Model model) throws Exception&#123;</span><br><span class="line"></span><br><span class="line">PageHelper.startPage(currentPage, pageSize);//必须紧跟查询方法</span><br><span class="line">List&lt;TestTableVO&gt; lists = tableService.listAll();</span><br><span class="line">PageInfo&lt;TestTableVO&gt; pageInfo= new PageInfo&lt;&gt;(lists);</span><br><span class="line">model.addAttribute(&quot;pageInfo&quot;, pageInfo);</span><br><span class="line">model.addAttribute(&quot;userList&quot;, lists);</span><br><span class="line">    return &quot;userList&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      pageHelpert开源分页插件的使用
+    
+    </summary>
+    
+      <category term="JavaWeb" scheme="http://www.liulongblog.top/categories/JavaWeb/"/>
+    
+    
+      <category term="javaweb" scheme="http://www.liulongblog.top/tags/javaweb/"/>
+    
+  </entry>
   
   <entry>
     <title>HashMap和Hashtable的区别</title>
