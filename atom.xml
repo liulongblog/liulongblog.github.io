@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.liulongblog.top/"/>
-  <updated>2018-08-09T15:04:16.468Z</updated>
+  <updated>2018-08-16T13:25:49.269Z</updated>
   <id>http://www.liulongblog.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis入门</title>
+    <link href="http://www.liulongblog.top/2018/08/15/%E5%80%9F%E6%88%91%E4%B8%80%E7%94%9F/"/>
+    <id>http://www.liulongblog.top/2018/08/15/借我一生/</id>
+    <published>2018-08-15T13:15:16.000Z</published>
+    <updated>2018-08-16T13:25:49.269Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]<br>==这几天博客也没有更新内容，一方面比较忙，另一方面确实不在状态，这里只是我的一个笔记本，暂时我没有将它公开的打算，当然了也不会有人来看，这周末将之前没写的补上吧，加油。还有希望看看《霍乱时期的爱情》==</p><h4 id="借我一生"><a href="#借我一生" class="headerlink" title="借我一生"></a><strong>借我一生</strong></h4><p><strong>之前没有看过余秋雨写的作品，也是在一位朋友的推荐下才得以阅读这部作品，基本上按照时间主线来回忆自己以及家人亲戚，朋友种种经历，看的过程中也是很难有很深的感触，毕竟十年文革对当时的影响我们是体会不到的，当然不乏有一些场景让人感受到深深地无奈<br>听名字便是一本沉重的书了，一生本来就是一个沉重的话题，更何况生在那个时代经历变故。像我们生活在这样的时代，我想可能不会理解那个时候那一辈人所经历的种种，我是最不能面对过去的人了，对待从前自己的失败尚且不敢去回味，更何况事关国家过去屈辱的历史。看到他回忆二叔，以颜真卿的《祭侄帖》来祭奠他时，不禁悲从中来。从前一个人坐在北仑的新华书店读三毛的《雨季不再来》，荷西走后，她强装镇静，然而字里行间透出的心境却是藏不住的，一个人坐在书店读到眼泪流下来。那时候的我，跟现在的我一样，熬得很孤独啊，可是谁又不是呢，芸芸众生，每个人都有自己不能说出口别人不能理解体谅懂得的地方，你波澜起伏而世界寂静无声，人生说到底，都是一个人的旅程，你的孤独才能凸显出你是这样一个普通平常的人。我想再过十年，再看起这本书，那就是另一种体会了吧。</strong><br>–部分内容摘自知乎用户-亲爱的小明同学</p>]]></content>
+    
+    <summary type="html">
+    
+      借我一生————余秋雨
+    
+    </summary>
+    
+      <category term="读书" scheme="http://www.liulongblog.top/categories/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+      <category term="读书笔记" scheme="http://www.liulongblog.top/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>spring aop</title>
